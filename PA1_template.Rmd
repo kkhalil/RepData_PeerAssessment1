@@ -92,8 +92,10 @@ axis(2,las=1)
 indeMaxInterval <- which.max(meanStepsPerInterval$mean)
 maxInterval <- meanStepsPerInterval$interval[indeMaxInterval]
 maxInterval
+intervalTime <- sprintf("%02d:%02d", maxInterval %/% 100, maxInterval %% 100)
+intervalTime
 ```
-So, **`r maxInterval`** is the 5-minute interval in question.
+So, **`r maxInterval`** is the 5-minute interval in question (correspond to the time `r intervalTime`).
 
 ### Imputing missing values
 
@@ -138,6 +140,9 @@ medianStepsPerDay <- median(stepsPerDay$totalSteps)
 medianStepsPerDay
 ```
 So, the mean of total number of steps per day is **`r as.character(round(meanStepsPerDay,2))`** and the median of total number of steps per day is **`r as.character(round(medianStepsPerDay,2))`**.
+
+In general, there are not difference in histogram form with almost the same values for the mean and ,edian, but the number of steps is becoming bigger especially around the median.
+
 
 Now, I will introduce a new data field in the new dataset. first I initialize this filed to be completely to the `weeday` value then I modify the values corresponding to `Saturday` and `Sunday` to the value `weekend`.
 ```{r echo=TRUE}

@@ -326,7 +326,14 @@ maxInterval
 <pre><code>## [1] 835
 </code></pre>
 
-<p>So, <strong>835</strong> is the 5-minute interval in question.</p>
+<pre><code class="r">intervalTime &lt;- sprintf(&quot;%02d:%02d&quot;, maxInterval%/%100, maxInterval%%100)
+intervalTime
+</code></pre>
+
+<pre><code>## [1] &quot;08:35&quot;
+</code></pre>
+
+<p>So, <strong>835</strong> is the 5-minute interval in question (correspond to the time 08:35).</p>
 
 <h3>Imputing missing values</h3>
 
@@ -383,6 +390,8 @@ medianStepsPerDay
 </code></pre>
 
 <p>So, the mean of total number of steps per day is <strong>10766.19</strong> and the median of total number of steps per day is <strong>10766.19</strong>.</p>
+
+<p>In general, there are not difference in histogram form with almost the same values for the mean and ,edian, but the number of steps is becoming bigger especially around the median.</p>
 
 <p>Now, I will introduce a new data field in the new dataset. first I initialize this filed to be completely to the <code>weeday</code> value then I modify the values corresponding to <code>Saturday</code> and <code>Sunday</code> to the value <code>weekend</code>.</p>
 
